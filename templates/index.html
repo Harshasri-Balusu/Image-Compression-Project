@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Image Compression Using SVD</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        .form {
+            margin-top: 50px;
+        }
+        .form input[type="file"] {
+            display: none;
+        }
+        .form label {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form label:hover {
+            background-color: #e6e6e6;
+        }
+        .form input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Compression Using SVD</h1>
+    <form class="form" method="post" enctype="multipart/form-data">
+        <label for="file">Upload Image (JPEG, PNG)</label>
+        <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required>
+        <label for="rank">Rank (1-1000)</label>
+        <input type="number" id="rank" name="rank" min="1" max="1000" value="10" required>
+        <input type="submit" value="Compress">
+    </form>
+    {% if result %}
+    <h2>Compressed Image:</h2>
+    <img src="{{ result }}" alt="Compressed Image">
+    {% endif %}
+</body>
+</html>
